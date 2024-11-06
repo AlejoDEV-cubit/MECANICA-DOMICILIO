@@ -1,0 +1,92 @@
+/* Estilo general */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+nav a {
+    color: #00bfff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ff8800;
+}
+
+h2 {
+    font-size: 2.2em;
+    color: #004d99;
+    margin-top: 20px;
+}
+
+p {
+    max-width: 800px;
+    margin: 20px auto;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* Sección de Información General */
+.info-general, .valores, .contacto, .llamado-accion {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #e6f2ff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-general h3, .valores h3 {
+    font-size: 1.8em;
+    color: #004d99;
+    margin-bottom: 10px;
+}
+
+/* Estilos para la sección de contacto */
+.contacto {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.foto-contacto {
+    width: 150px;
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid #00bfff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contacto-info p {
+    font-size: 1.1em;
+    color: #333;
+}
+
+/* Estilos para la llamada a la acción */
+.llamado-accion p {
+    font-size: 1.2em;
+    color: #333;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #00bfff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff8800;
+    transform: scale(1.05);
+}
