@@ -72,27 +72,3 @@ strong {
     color: #ff8800;
 }
 
-/* Pie de página */
-footer {
-    text-align: center;
-    color: #f1f1f1;
-    background-color: #333;
-    padding: 10px;
-    font-size: 14px;
-    margin-top: 40px;
-}
-
-footer p {
-    margin: 5px 0;
-}
-
-footer a {
-    color: #00bfff;
-    text-decoration: none;
-    margin: 0 10px;
-    transition: color 0.3s ease;
-}
-
-footer a:hover {
-    color: #ff8800;
-}

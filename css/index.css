@@ -55,22 +55,6 @@ ul li {
     font-size: 1.1em;
 }
 
-/* Botón de despliegue */
-a[href="#opciones"] {
-    display: inline-block;
-    background-color: #004d99;
-    color: white;
-    padding: 12px 25px;
-    margin: 20px auto;
-    text-decoration: none;
-    font-size: 1.2em;
-    border-radius: 5px;
-    text-align: center;
-}
-
-a[href="#opciones"]:hover {
-    background-color: #003366;
-}
 
 /* Sección de opciones */
 #opciones {
@@ -80,7 +64,7 @@ a[href="#opciones"]:hover {
 
 #opciones div {
     background-color: #ffffff;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #f01d1d;
     border-radius: 10px;
     padding: 20px;
     margin: 15px;
@@ -113,46 +97,8 @@ a[href="#opciones"]:hover {
     background-color: #003366;
 }
 
-/* Pie de página */
-
-footer {
-    position: fixed;
-    bottom: 0;
-    background-color: #333;
-    color: #f1f1f1;
-    text-align: center;
-    padding: 10px;
-    font-size: 14px;
-    width: 100%;
-    z-index: 10;
-}
-
-
-footer p {
-    margin: 5px 0;
-}
-
-footer a {
-    color: #00bfff;
-    text-decoration: none;
-    margin: 0 10px;
-    transition: color 0.3s ease;
-}
-
-footer a:hover {
-    color: #ff8800;
-}
-
-/* Relleno en la parte inferior de la página para evitar superposición */
-body {
-    padding-bottom: 60px; /* Ajusta este valor según la altura del pie de página */
-    box-sizing: border-box;
-}
-
-
-
-/* Botón "Entendido" centrado con animación */
-#entendido {
+/* Botónes centrado con animación */
+#Entendido {
     display: block;
     width: fit-content;
     margin: 20px auto;
@@ -166,9 +112,9 @@ body {
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-#entendido:hover {
+#Entendido:hover {
     transform: scale(1.05);
-    background-color: #ff8800;
+    background-color: #3d00e6;
 }
 
 
@@ -186,7 +132,7 @@ body {
 
 #opciones div:hover {
     transform: scale(1.05);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 8px rgb(141, 82, 209);
 }
 
 /* Enlaces dentro de los recuadros */
@@ -196,27 +142,11 @@ body {
     color: #00bfff;
     text-decoration: none;
     transition: color 0.2s ease;
+    
+
+
 }
 
 #opciones div a:hover {
     color: #ff8800;
-}
-
-.boton-animado {
-    display: inline-block;
-    width: fit-content;
-    margin: 20px auto;
-    padding: 10px 20px;
-    background-color: #00bfff;
-    color: #fff;
-    font-size: 16px;
-    text-align: center;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.boton-animado:hover {
-    transform: scale(1.05);
-    background-color: #ff8800;
 }
