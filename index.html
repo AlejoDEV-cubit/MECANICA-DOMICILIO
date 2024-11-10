@@ -4,12 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienvenido - Mecánica a Domicilio</title>
-    <!-- Enlace a los archivo CSS -->
+    <!-- Enlace a los archivos CSS -->
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/PiePagina.css">
-
 </head>
 <body>
+    <!-- Sección para mostrar el nombre del usuario o el botón de iniciar sesión -->
+    <header>
+        <div class="usuario-info" id="usuario-info" style="position: absolute; top: 10px; right: 10px;">
+            <!-- Contenedor para nombre del usuario y cerrar sesión -->
+            <span id="nombre-usuario" style="display: none;"></span>
+            <button id="cerrar-sesion" onclick="cerrarSesion()" style="display: none;">Cerrar Sesión</button>
+            <!-- Botón de iniciar sesión, visible solo cuando el usuario no ha iniciado sesión -->
+            <a href="HTML/INICIAR-SESION/iniciarSesion.html" id="boton-iniciar-sesion">Iniciar Sesion</a>
+        </div>
+    </header>
+
     <h1>Bienvenido a Mecánica a Domicilio</h1>
     <p>¿Problemas con tu vehículo y no tienes tiempo de llevarlo al taller? No te preocupes, nosotros vamos a tu ubicación y te ayudamos.</p>
     
@@ -23,7 +33,7 @@
     <p>Para saber más sobre nuestros servicios o contactarnos, solo haz clic en "Entendido". ¡Estamos aquí para ayudarte!</p>
     
     <!-- Botón para desplazar a la sección de opciones -->
-    <a href="#opciones" id="Entendido" >Entendido</a>
+    <a href="#opciones" id="Entendido">Entendido</a>
 
     <!-- Sección de opciones con botones -->
     <section id="opciones">
@@ -34,19 +44,19 @@
         <div>
             <h3>Servicios</h3>
             <p>Aquí podrás ver los servicios disponibles y cómo podemos ayudarte con tu vehículo.</p>
-            <a href="HTML/servicios.html" class=>Ir a Servicios</a>
+            <a href="HTML/servicios.html">Ir a Servicios</a>
         </div>
 
         <div>
             <h3>Sobre Nosotros</h3>
             <p>Conoce más sobre nuestra empresa, nuestra historia y nuestra misión.</p>
-            <a href="HTML/sobre-nosotros.html" class= >Ir a Sobre Nosotros</a>
+            <a href="HTML/sobre-nosotros.html">Ir a Sobre Nosotros</a>
         </div>
 
         <div>
             <h3>Comentarios</h3>
             <p>Lee los comentarios de nuestros clientes y su experiencia con nuestro servicio.</p>
-            <a href="HTML/comentarios.html" class= >Ir a Comentarios</a>
+            <a href="HTML/comentarios.html">Ir a Comentarios</a>
         </div>
     </section>
 
@@ -59,5 +69,8 @@
             <a href="HTML/terminos.html">Términos y Condiciones</a>
         </p>
     </footer>
+
+    <!-- Enlace al archivo JavaScript -->
+    <script src="JS/iniciadoSesion.js"></script>
 </body>
 </html>

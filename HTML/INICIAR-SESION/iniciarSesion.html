@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Mecánica a Domicilio</title>
+    <link rel="stylesheet" href="../css/iniciar-sesion.css">
+</head>
+<body>
+    <h1>Iniciar Sesión</h1>
+    <form id="formulario-inicio-sesion">
+        <label for="correo">Correo Electrónico:</label>
+        <input type="email" id="correo" required>
+
+        <label for="contrasena">Contraseña:</label>
+        <div style="position: relative;">
+            <input type="password" id="contrasena" required>
+            <button type="button" id="ver-contrasena" 
+                    onmousedown="mostrarContrasena()" 
+                    onmouseup="ocultarContrasena()" 
+                    onmouseleave="ocultarContrasena()"
+                    style="position: absolute; right: 5px; top: 50%; transform: translateY(-50%);">
+                👁️
+            </button>
+        </div>
+
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+
+    <!-- Botón para regresar a la página principal, inicialmente oculto -->
+     <a href="../../index.html">volver pagina principal</a> 
+    
+
+    <!-- Texto de enlace a la página de registro -->
+    <p>¿No tienes una cuenta? <a href="registrarse.html">Créala aquí</a></p>
+
+    <!-- Enlace al archivo JavaScript -->
+    <script src="../../JS/iniciar-sesion.js"></script>
+    <script>
+        function mostrarContrasena() {
+            document.getElementById("contrasena").type = "text";
+        }
+
+        function ocultarContrasena() {
+            document.getElementById("contrasena").type = "password";
+        }
+    </script>
+</body>
+</html>
