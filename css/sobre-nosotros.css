@@ -1,92 +1,193 @@
-/* Estilo general */
+/* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(-45deg, #f0f2f5, #e6eef7);
     color: #333;
     margin: 0;
-    padding: 20px;
-    text-align: center;
+    padding: 2rem;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Navegación */
+nav {
+    padding: 1rem 0;
+    margin-bottom: 2rem;
 }
 
 nav a {
-    color: #00bfff;
+    color: #003366;
     text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
-    transition: color 0.3s ease;
+    margin: 0 1rem;
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 0;
 }
 
-nav a:hover {
-    color: #ff8800;
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #003366;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
 }
 
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Encabezados y texto */
 h2 {
-    font-size: 2.2em;
-    color: #004d99;
-    margin-top: 20px;
+    font-size: 2.5em;
+    color: #003366;
+    margin: 3rem 0 2rem;
+    text-align: center;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 2px;
+    background: #003366;
+    margin: 1rem auto;
+    border-radius: 2px;
+}
+
+h3 {
+    font-size: 1.8em;
+    color: #003366;
+    margin-bottom: 1.5rem;
 }
 
 p {
     max-width: 800px;
-    margin: 20px auto;
+    margin: 1.5rem auto;
     font-size: 1.1em;
-    line-height: 1.6;
+    color: #444;
+}
+
+/* Secciones comunes */
+.seccion {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.seccion:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
 /* Sección de Información General */
-.info-general, .valores, .contacto, .llamado-accion {
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 20px;
-    background-color: #e6f2ff;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+.info-general, .valores {
+    text-align: left;
 }
 
-.info-general h3, .valores h3 {
-    font-size: 1.8em;
-    color: #004d99;
-    margin-bottom: 10px;
-}
-
-/* Estilos para la sección de contacto */
+/* Sección de Contacto */
 .contacto {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 2rem;
+    padding: 2rem;
 }
 
 .foto-contacto {
-    width: 150px;
-    height: auto;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
-    border: 3px solid #00bfff;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border: 4px solid #003366;
+    box-shadow: 0 4px 12px rgba(0, 51, 102, 0.2);
+    transition: transform 0.3s ease;
+    object-fit: cover;
 }
 
-.contacto-info p {
-    font-size: 1.1em;
-    color: #333;
+.foto-contacto:hover {
+    transform: scale(1.05);
 }
 
-/* Estilos para la llamada a la acción */
+.contacto-info {
+    flex: 1;
+    text-align: left;
+}
+
+/* Llamada a la acción */
+.llamado-accion {
+    background: linear-gradient(45deg, #003366, #00509e);
+    color: white;
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
 .llamado-accion p {
-    font-size: 1.2em;
-    color: #333;
+    color: white;
+    font-size: 1.3em;
+    margin-bottom: 2rem;
 }
 
+/* Botón */
 button {
-    padding: 10px 20px;
-    font-size: 1em;
-    color: #fff;
-    background-color: #00bfff;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    color: white;
+    background: #003366;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.llamado-accion button {
+    background: white;
+    color: #003366;
 }
 
 button:hover {
-    background-color: #ff8800;
-    transform: scale(1.05);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 51, 102, 0.2);
+}
+
+.llamado-accion button:hover {
+    background: #f0f2f5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    .contacto {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .foto-contacto {
+        width: 150px;
+        height: 150px;
+    }
+
+    .contacto-info {
+        text-align: center;
+    }
+
+    nav a {
+        margin: 0 0.5rem;
+    }
 }

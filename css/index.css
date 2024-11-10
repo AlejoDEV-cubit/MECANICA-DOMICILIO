@@ -1,152 +1,199 @@
+/* Fuente personalizada */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Animaciones keyframes */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes floatingButton {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes pulseButton {
+    0% { box-shadow: 0 0 0 0 rgba(0, 80, 158, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(0, 80, 158, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 80, 158, 0); }
+}
+
 /* Estilo general */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Poppins', sans-serif;
     color: #333;
     margin: 0;
     padding: 0;
+    background: linear-gradient(-45deg, #f0f2f5, #e6eef7, #dce6f0, #c9ddf0);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    min-height: 100vh;
 }
 
 h1, h2, h3 {
-    color: #004d99;
+    color: #003366;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
     font-size: 2.5em;
     text-align: center;
     margin-top: 20px;
+    position: relative;
 }
 
-h2 {
-    font-size: 2em;
-    margin-top: 40px;
-    text-align: center;
-}
-
-h3 {
-    font-size: 1.5em;
-    margin-top: 15px;
-    text-align: center;
-}
-
-p {
-    text-align: center;
-    font-size: 1.1em;
-    line-height: 1.6;
-    max-width: 800px;
+h1::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #003366, #00509e);
     margin: 10px auto;
+    border-radius: 2px;
 }
 
 /* Sección de lista de beneficios */
-ul {
-    list-style: none;
-    padding: 0;
-    max-width: 600px;
-    margin: 20px auto;
-}
-
 ul li {
-    background-color: #e6f2ff;
-    color: #004d99;
+    background: linear-gradient(135deg, #dce6f0, #e6eef7);
+    color: #003366;
     padding: 15px;
-    margin: 10px 0;
+    margin: 15px 0;
     border-radius: 8px;
     text-align: center;
     font-size: 1.1em;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+ul li:hover {
+    transform: translateX(10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
 
 /* Sección de opciones */
-#opciones {
-    text-align: center;
-    padding: 40px 0;
-}
-
 #opciones div {
-    background-color: #ffffff;
-    border: 1px solid #f01d1d;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 51, 102, 0.2);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 20px;
     max-width: 300px;
     display: inline-block;
     vertical-align: top;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
 }
 
-#opciones div h3 {
-    color: #004d99;
-    margin-bottom: 10px;
-}
-
-#opciones div p {
-    color: #555;
-    margin-bottom: 15px;
+#opciones div:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 128, 0.2);
 }
 
 #opciones div a {
     text-decoration: none;
     color: white;
-    background-color: #004d99;
-    padding: 10px 20px;
-    border-radius: 5px;
+    background: linear-gradient(45deg, #00509e, #003366);
+    padding: 12px 25px;
+    border-radius: 25px;
     display: inline-block;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: floatingButton 3s ease-in-out infinite;
 }
 
 #opciones div a:hover {
-    background-color: #003366;
+    background: linear-gradient(45deg, #003366, #00509e);
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 51, 102, 0.4);
 }
 
-/* Botónes centrado con animación */
+#opciones div a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+#opciones div a:hover::before {
+    left: 100%;
+}
+
+/* Botón de "Entendido" */
 #Entendido {
     display: block;
     width: fit-content;
-    margin: 20px auto;
-    padding: 10px 20px;
-    background-color: #00bfff;
-    color: #fff;
-    font-size: 16px;
+    margin: 30px auto;
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #00509e, #003366);
+    color: #ffffff;
+    font-size: 1.1em;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 25px;
     text-decoration: none;
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    transition: all 0.3s ease;
+    animation: pulseButton 2s infinite;
+    position: relative;
+    overflow: hidden;
 }
 
 #Entendido:hover {
     transform: scale(1.05);
-    background-color: #3d00e6;
+    background: linear-gradient(45deg, #003366, #00509e);
+    box-shadow: 0 5px 15px rgba(0, 51, 102, 0.4);
 }
 
-
-/* Recuadros de las secciones (Servicios, Sobre Nosotros, Comentarios) */
-#opciones div {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 20px;
-    text-align: center;
-    margin: 10px auto;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    background-color: #f9f9f9;
-    max-width: 300px;
-}
-
-#opciones div:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 4px 8px rgb(141, 82, 209);
-}
-
-/* Enlaces dentro de los recuadros */
-#opciones div a {
-    display: inline-block;
-    margin-top: 10px;
-    color: #00bfff;
+/* Botón de iniciar sesión */
+#boton-iniciar-sesion {
+    color: white;
+    background: linear-gradient(45deg, #00509e, #003366);
+    padding: 12px 25px;
+    border-radius: 25px;
     text-decoration: none;
-    transition: color 0.2s ease;
-    
-
-
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 51, 102, 0.2);
 }
 
-#opciones div a:hover {
-    color: #ff8800;
+#boton-iniciar-sesion:hover {
+    transform: scale(1.05);
+    box-shadow: 0 7px 20px rgba(0, 51, 102, 0.4);
+}
+
+/* Efecto de brillo para todos los botones */
+#boton-iniciar-sesion::before,
+#Entendido::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+#boton-iniciar-sesion:hover::before,
+#Entendido:hover::before {
+    left: 100%;
 }

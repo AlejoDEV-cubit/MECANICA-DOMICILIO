@@ -1,77 +1,118 @@
-/* Estilo general */
+/* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(-45deg, #f0f2f5, #e6eef7);
     color: #333;
     margin: 0;
-    padding: 20px;
-    text-align: center;
+    padding: 2rem;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navegación */
+nav {
+    padding: 1rem 0;
+    margin-bottom: 2rem;
 }
 
 nav a {
-    color: #00bfff;
+    color: #003366;
     text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
-    transition: color 0.3s ease;
+    margin: 0 1rem;
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 0;
 }
 
-nav a:hover {
-    color: #ff8800;
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #003366;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
 }
 
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Encabezados y texto */
 h2 {
-    font-size: 2em;
-    color: #004d99;
-    margin-top: 20px;
+    font-size: 2.5em;
+    color: #003366;
+    margin: 3rem 0;
+    text-align: center;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 2px;
+    background: #003366;
+    margin: 1rem auto;
+    border-radius: 2px;
 }
 
 p {
     max-width: 800px;
-    margin: 20px auto;
+    margin: 1.5rem auto;
     font-size: 1.1em;
-    line-height: 1.6;
+    color: #444;
 }
 
+/* Botones */
 button {
-    padding: 10px 20px;
-    font-size: 1em;
-    color: #fff;
-    background-color: #00bfff;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    color: white;
+    background: #003366;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    font-weight: 500;
 }
 
 button:hover {
-    background-color: #ff8800;
+    background: #00509e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 51, 102, 0.2);
 }
 
 /* Contenedor de Servicios */
 .servicios-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
 }
 
 /* Recuadros de Servicio */
 .servicio {
-    width: 250px;
-    height: 300px;
-    background-color: #e6f2ff;
-    border-radius: 10px;
+    height: 350px;
+    background: white;
+    border-radius: 12px;
     overflow: hidden;
     position: relative;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .servicio:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
 /* Imagen inicial */
@@ -81,43 +122,79 @@ button:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #004d99;
-    color: #fff;
+    background: linear-gradient(45deg, #003366, #00509e);
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.2em;
-    transition: opacity 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .servicio:hover .imagen {
     opacity: 0;
 }
 
-/* Descripción que aparece al pasar el cursor */
+/* Descripción con scroll */
 .descripcion {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #ffffff;
-    padding: 20px;
+    background: white;
+    padding: 1.5rem;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: all 0.3s ease;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #003366 #f0f2f5;
 }
 
 .servicio:hover .descripcion {
     opacity: 1;
 }
 
+/* Estilo del scroll */
+.descripcion::-webkit-scrollbar {
+    width: 6px;
+}
+
+.descripcion::-webkit-scrollbar-track {
+    background: #f0f2f5;
+    border-radius: 3px;
+}
+
+.descripcion::-webkit-scrollbar-thumb {
+    background: #003366;
+    border-radius: 3px;
+}
+
 .descripcion h3 {
     font-size: 1.5em;
-    color: #004d99;
-    margin-bottom: 10px;
+    color: #003366;
+    margin-bottom: 1rem;
 }
 
 .descripcion p {
-    font-size: 1em;
-    color: #555;
+    font-size: 1rem;
+    color: #444;
+    margin: 0.5rem 0;
+    text-align: left;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    .servicios-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    nav a {
+        margin: 0 0.5rem;
+    }
 }
