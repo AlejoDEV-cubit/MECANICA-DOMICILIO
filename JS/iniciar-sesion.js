@@ -10,7 +10,7 @@ document.getElementById("formulario-inicio-sesion").addEventListener("submit", f
     if (usuarioRegistrado && usuarioRegistrado.correo === correo && usuarioRegistrado.contrasena === contrasena) {
         // Guardar el nombre del usuario en localStorage para mostrarlo en la página principal
         localStorage.setItem("nombreUsuario", usuarioRegistrado.nombres);
-        alert(`¡Bienvenido, ya puedes volver a la pagina principal, undele al boton ${usuarioRegistrado.nombres}!`);
+        alert(`¡Bienvenido ${usuarioRegistrado.nombres}!, para regresar a la pagina principal undele al boton "volver pagina principal" ` );
         
         // Mostrar el botón de "Volver a Página Principal"
         document.getElementById("volver-principal").style.display = "block";

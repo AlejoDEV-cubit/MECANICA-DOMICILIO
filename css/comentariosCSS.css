@@ -1,3 +1,5 @@
+/* Fuente personalizada */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 /* Estilos generales */
 body {
     font-family: 'Poppins', sans-serif;
@@ -11,7 +13,7 @@ body {
 
 /* Navegación */
 nav a {
-    color: #003366;
+    color: #013364;
     text-decoration: none;
     margin: 0 1rem;
     font-weight: 500;
@@ -71,7 +73,7 @@ p {
 }
 
 .comentario {
-    height: 350px;
+    /* Eliminamos height fijo */
     background: white;
     border-radius: 12px;
     overflow: hidden;
@@ -79,6 +81,10 @@ p {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     padding: 1.5rem;
+    /* Agregamos display flex para mejor control del contenido */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Espacio entre elementos */
 }
 
 .comentario:hover {
@@ -90,7 +96,7 @@ p {
 .comentario h3 {
     font-size: 1.5em;
     color: #003366;
-    margin-bottom: 1rem;
+    margin: 0; /* Ajustamos el margen */
 }
 
 /* Estilos de los videos */
@@ -101,45 +107,10 @@ video {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    object-fit: contain; /* Asegura que el video mantenga sus proporciones */
 }
 
 video:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    body {
-        padding: 1rem;
-    }
-
-    .comentarios {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-    }
-
-    nav a {
-        margin: 0 0.5rem;
-    }
-}
-
-/* Estilo del scroll */
-.comentario {
-    scrollbar-width: thin;
-    scrollbar-color: #003366 #f0f2f5;
-}
-
-.comentario::-webkit-scrollbar {
-    width: 6px;
-}
-
-.comentario::-webkit-scrollbar-track {
-    background: #f0f2f5;
-    border-radius: 3px;
-}
-
-.comentario::-webkit-scrollbar-thumb {
-    background: #003366;
-    border-radius: 3px;
 }

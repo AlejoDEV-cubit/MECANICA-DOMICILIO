@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrarse - Mecánica a Domicilio</title>
-    <link rel="stylesheet" href="../css/registro.css">
+    <link rel="stylesheet" href="../../css/REGISTRARSE.CSS">
 </head>
 <body>
     <h1>Registro de Usuario</h1>
@@ -24,12 +24,19 @@
         <label for="verificarContrasena">Verificar Contraseña:</label>
         <input type="password" id="verificarContrasena" required>
 
-        <label>Género:</label>
-        <input type="radio" id="hombre" name="genero" value="Hombre" required>
-        <label for="hombre">Hombre</label>
-        <input type="radio" id="mujer" name="genero" value="Mujer">
-        <label for="mujer">Mujer</label>
-
+<div class="genero-grupo">
+    <label>Género:</label>
+    <div class="radio-grupo">
+        <div>
+            <input type="radio" id="hombre" name="genero" value="Hombre" required>
+            <label for="hombre">Hombre</label>
+        </div>
+        <div>
+            <input type="radio" id="mujer" name="genero" value="Mujer">
+            <label for="mujer">Mujer</label>
+        </div>
+    </div>
+</div>
         <button type="submit">Registrarse</button>
     </form>
     
