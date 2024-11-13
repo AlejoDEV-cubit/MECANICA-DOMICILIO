@@ -6,7 +6,7 @@ body {
     font-family: 'Poppins', sans-serif;
     color: #333;
     margin: 0;
-    padding: 3rem;
+    padding: clamp(1rem, 5vw, 3rem);
     background: linear-gradient(-45deg, #f0f2f5, #e6eef7, #dce6f0);
     min-height: 100vh;
 }
@@ -16,16 +16,16 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 2.5em;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
     text-align: center;
-    margin: 2.5rem 0;
+    margin: clamp(1.5rem, 4vw, 2.5rem) 0;
     position: relative;
 }
 
 h1::after {
     content: '';
     display: block;
-    width: 80px;
+    width: clamp(60px, 10vw, 80px);
     height: 2px;
     background: #003366;
     margin: 1rem auto;
@@ -35,19 +35,19 @@ h1::after {
 /* Sección de lista de beneficios */
 ul {
     max-width: 800px;
-    margin: 3rem auto;
-    padding: 0 2rem;
+    margin: clamp(2rem, 5vw, 3rem) auto;
+    padding: 0 clamp(1rem, 3vw, 2rem);
     list-style: none;
 }
 
 ul li {
     background: white;
     color: #333;
-    padding: 1.5rem 2rem;
-    margin: 1.5rem 0;
+    padding: clamp(1rem, 3vw, 1.5rem) clamp(1.25rem, 3vw, 2rem);
+    margin: clamp(1rem, 3vw, 1.5rem) 0;
     border-radius: 8px;
     text-align: left;
-    font-size: 1.1em;
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
@@ -55,17 +55,17 @@ ul li {
 /* Sección de opciones */
 #opciones {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: clamp(1rem, 3vw, 2rem);
     max-width: 1200px;
-    margin: 3rem auto;
-    padding: 0 2rem;
+    margin: clamp(2rem, 5vw, 3rem) auto;
+    padding: 0 clamp(1rem, 3vw, 2rem);
 }
 
 #opciones div {
     background: white;
     border-radius: 12px;
-    padding: 2.5rem;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -80,78 +80,56 @@ ul li {
 #Entendido,
 #boton-iniciar-sesion {
     display: inline-block;
-    padding: 1rem 2rem;
+    width: 100%;
+    max-width: 300px;
+    padding: clamp(0.8rem, 2.5vw, 1rem) clamp(1.5rem, 4vw, 2rem);
     background: linear-gradient(45deg, #00509e, #003366);
     color: white;
     text-decoration: none;
     border-radius: 25px;
-    font-size: 1.1em;
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
     transition: all 0.3s ease;
+    text-align: center;
+    box-sizing: border-box;
 }
 
 /* Efecto hover simple para botones */
-#opciones div a:hover,
-#Entendido:hover,
-#boton-iniciar-sesion:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(0, 51, 102, 0.2);
+@media (hover: hover) {
+    #opciones div a:hover,
+    #Entendido:hover,
+    #boton-iniciar-sesion:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 15px rgba(0, 51, 102, 0.2);
+    }
 }
 
 /* Botón de "Entendido" */
 #Entendido {
     display: block;
-    width: fit-content;
-    margin: 3rem auto;
+    margin: clamp(2rem, 5vw, 3rem) auto;
 }
 
-/* Media Queries */
-@media (max-width: 768px) {
+/* Mejoras para pantallas táctiles */
+@media (hover: none) {
+    #opciones div a:active,
+    #Entendido:active,
+    #boton-iniciar-sesion:active {
+        transform: scale(0.98);
+        background: linear-gradient(45deg, #003366, #00509e);
+    }
+}
+
+/* Media queries específicas */
+@media (max-width: 480px) {
+    #opciones {
+        grid-template-columns: 1fr;
+    }
+    
+    ul li {
+        margin: 1rem 0;
+    }
+    
     body {
         padding: 1rem;
-    }
-
-    h1 {
-        font-size: 2em;
-        margin: 1.5rem 0;
-    }
-
-    ul {
-        padding: 0 1rem;
-    }
-
-    /* Cambios para el scroll horizontal en móviles */
-    #opciones {
-        display: flex;
-        overflow-x: auto;
-        gap: 1rem;
-        padding: 1rem;
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* IE y Edge */
-    }
-
-    #opciones::-webkit-scrollbar {
-        display: none; /* Chrome, Safari y Opera */
-    }
-
-    #opciones div {
-        flex: 0 0 280px; /* Ancho fijo para cada tarjeta */
-        min-width: 280px;
-        padding: 1.5rem;
-    }
-
-    #opciones div a,
-    #Entendido,
-    #boton-iniciar-sesion {
-        padding: 0.875rem 1.75rem;
-        font-size: 1rem;
-    }
-}
-
-/* Ajuste adicional para tablets */
-@media (min-width: 769px) and (max-width: 1024px) {
-    #opciones {
-        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
     }
 }
