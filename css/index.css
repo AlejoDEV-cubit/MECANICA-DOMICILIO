@@ -55,7 +55,7 @@ ul li {
 /* Sección de opciones */
 #opciones {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Cambia esto según el número de elementos que tengas */
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     max-width: 1200px;
     margin: 3rem auto;
@@ -104,15 +104,54 @@ ul li {
     margin: 3rem auto;
 }
 
-@media (max-width: 992px) {
-    #opciones div {
-        max-width: calc(50% - 2rem); /* 2 columnas en pantallas medianas */
-    }
-}
-
+/* Media Queries */
 @media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin: 1.5rem 0;
+    }
+
+    ul {
+        padding: 0 1rem;
+    }
+
+    /* Cambios para el scroll horizontal en móviles */
+    #opciones {
+        display: flex;
+        overflow-x: auto;
+        gap: 1rem;
+        padding: 1rem;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE y Edge */
+    }
+
+    #opciones::-webkit-scrollbar {
+        display: none; /* Chrome, Safari y Opera */
+    }
+
     #opciones div {
-        max-width: 100%; /* 1 columna en pantallas pequeñas */
+        flex: 0 0 280px; /* Ancho fijo para cada tarjeta */
+        min-width: 280px;
+        padding: 1.5rem;
+    }
+
+    #opciones div a,
+    #Entendido,
+    #boton-iniciar-sesion {
+        padding: 0.875rem 1.75rem;
+        font-size: 1rem;
     }
 }
 
+/* Ajuste adicional para tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+    #opciones {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+    }
+}
