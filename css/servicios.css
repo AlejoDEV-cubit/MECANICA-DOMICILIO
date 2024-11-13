@@ -1,5 +1,6 @@
 /* Fuente personalizada */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 /* Estilos generales */
 body {
     font-family: 'Poppins', sans-serif;
@@ -48,7 +49,6 @@ nav a:hover::after {
     width: 100%;
 }
 
-
 /* Encabezados y texto */
 h2 {
     font-size: 2.5em;
@@ -67,8 +67,6 @@ h2::after {
     margin: 1rem auto;
     border-radius: 2px;
 }
-
-
 
 /* Botones */
 button {
@@ -127,10 +125,12 @@ button:hover {
     align-items: center;
     font-size: 1.2em;
     transition: all 0.3s ease;
+    z-index: 1;
 }
 
 .servicio:hover .imagen {
     opacity: 0;
+    z-index: -1;
 }
 
 /* Descripción con scroll */
@@ -142,9 +142,11 @@ button:hover {
     height: 100%;
     background: white;
     padding: 1.5rem;
+    box-sizing: border-box;
     opacity: 0;
-    transition: all 0.3s ease;
+    transition: opacity 0.3s ease;
     overflow-y: auto;
+    overflow-x: hidden;
     scrollbar-width: thin;
     scrollbar-color: #003366 #f0f2f5;
 }
