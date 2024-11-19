@@ -9,12 +9,16 @@
     <link rel="stylesheet" href="css/PiePagina.css">
 </head>
 <body>
+
+
     <!-- Sección para mostrar el nombre del usuario o el botón de iniciar sesión -->
     <header>
-        <div class="usuario-info" id="usuario-info" style="position: absolute; top: 10px; right: 10px;">
+        <div style="position: absolute; top: 10px; right: 10px;">
             <!-- Contenedor para nombre del usuario y cerrar sesión -->
             <span id="nombre-usuario" style="display: none;"></span>
             <button id="cerrar-sesion" onclick="cerrarSesion()" style="display: none;">Cerrar Sesión</button>
+
+
             <!-- Botón de iniciar sesión, visible solo cuando el usuario no ha iniciado sesión -->
             <a href="HTML/INICIAR-SESION/iniciarSesion.html" id="boton-iniciar-sesion" class="btn-iniciar-sesion">Iniciar Sesión</a>
         </div>
@@ -33,7 +37,7 @@
     <p>Para saber más sobre nuestros servicios o contactarnos, solo haz clic en "Entendido". ¡Estamos aquí para ayudarte!</p>
     
     <!-- Botón para desplazar a la sección de opciones -->
-    <a href="#opciones" id="Entendido">Entendido</a>
+    <a href="#opciones" id="Entendido">ver servicios</a>
 
     <!-- Sección de opciones con botones -->
     <section id="opciones">
@@ -76,6 +80,6 @@
 
     <!-- Enlace al archivo JavaScript -->
     <script src="JS/iniciadoSesion.js"></script>
-    <script src="JS/index.js"></script>
+
 </body>
 </html>
