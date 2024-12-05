@@ -1,200 +1,168 @@
-/* Fuente personalizada */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+/* Variables de diseño */
+:root {
+    --color-primary: #1A5F7A;
+    --color-secondary: #159895;
+    --color-accent: #57C5B6;
+    --color-background: #F8F9FA;
+    --shadow-subtle: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-elevated: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
 
 /* Estilos generales */
-body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(-45deg, #f0f2f5, #e6eef7);
-    color: #333;
+* {
+    box-sizing: border-box;
     margin: 0;
-    padding: 2rem;
-    min-height: 100vh;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--color-background);
+    color: #333;
     line-height: 1.6;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 2rem;
 }
 
 /* Navegación */
 nav {
-    padding: 1rem 0;
-    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1rem;
+    background-color: rgba(255,255,255,0.9);
+    box-shadow: var(--shadow-subtle);
 }
 
 nav a {
-    color: #003366;
     text-decoration: none;
-    margin: 0 1rem;
-    font-weight: 500;
-    position: relative;
-    padding: 0.5rem 0;
+    color: var(--color-primary);
+    transition: color 0.3s ease;
 }
 
-nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 50%;
-    background-color: #003366;
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
+nav a:hover {
+    color: var(--color-accent);
 }
 
-nav a:hover::after {
-    width: 100%;
-}
-
-/* Encabezados y texto */
-h2 {
-    font-size: 2.5em;
-    color: #003366;
-    margin: 3rem 0;
+/* Encabezados */
+h1 {
+    color: var(--color-primary);
     text-align: center;
+    margin-bottom: 1.5rem;
     position: relative;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--color-accent);
 }
 
-h2::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 2px;
-    background: #003366;
-    margin: 1rem auto;
-    border-radius: 2px;
-}
-
-/* Botones */
-button {
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-    color: white;
-    background: #003366;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 500;
-}
-
-button:hover {
-    background: #2902da;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(214, 47, 5, 0.2);
-}
-
-/* Contenedor de Servicios */
-.servicios-container {
+/* Grid de Servicios */
+.servicios-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    padding: 2rem 0;
 }
 
-/* Recuadros de Servicio */
-.servicio {
-    height: 350px;
+.servicio-card {
     background: white;
-    border-radius: 12px;
+    border-radius: 15px;
     overflow: hidden;
-    position: relative;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-subtle);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
 }
 
-.servicio:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+.servicio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-elevated);
 }
 
-/* Imagen inicial */
-.imagen {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, #003366, #00509e);
-    color: white;
+.servicio-imagen {
+    height: 250px;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.2em;
-    transition: all 0.3s ease;
-    z-index: 1;
+    background-color: rgba(22, 154, 149, 0.1);
 }
 
-.servicio:hover .imagen {
-    opacity: 0;
-    z-index: -1;
+.servicio-imagen img {
+    max-width: 70%;
+    max-height: 70%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
 }
 
-/* Descripción con scroll */
-.descripcion {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: white;
+.servicio-card:hover .servicio-imagen img {
+    transform: scale(0.8);
+}
+
+.servicio-contenido {
     padding: 1.5rem;
-    box-sizing: border-box;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    overflow-y: auto;
-    overflow-x: hidden;
-    scrollbar-width: thin;
-    scrollbar-color: #003366 #f0f2f5;
+    text-align: center;
 }
 
-.servicio:hover .descripcion {
-    opacity: 1;
-}
-
-/* Estilo del scroll */
-.descripcion::-webkit-scrollbar {
-    width: 6px;
-}
-
-.descripcion::-webkit-scrollbar-track {
-    background: #f0f2f5;
-    border-radius: 3px;
-}
-
-.descripcion::-webkit-scrollbar-thumb {
-    background: #003366;
-    border-radius: 3px;
-}
-
-.descripcion h3 {
-    font-size: 1.5em;
-    color: #003366;
+.servicio-contenido h3 {
+    color: var(--color-primary);
     margin-bottom: 1rem;
 }
 
-.descripcion p {
-    font-size: 1rem;
-    color: #444;
-    margin: 0.5rem 0;
-    text-align: left;
+.servicio-descripcion {
+    max-height: 150px;
+    overflow-y: auto;
 }
 
-/* Responsive */
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-background);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-secondary);
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+}
+
+/* Botón de Acción */
+.accion-servicios {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-elevated);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    body {
-        padding: 1rem;
+    .servicios-grid {
+        grid-template-columns: 1fr;
     }
 
-    .servicios-container {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-    }
-
-    nav a {
-        margin: 0 0.5rem;
+    nav {
+        flex-direction: column;
+        align-items: center;
     }
 }

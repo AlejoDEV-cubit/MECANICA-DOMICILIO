@@ -3,85 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenido - TecnoWheels</title>
-    <!-- Enlace a los archivos CSS -->
+    <title>HEXAPISTON - Servicio Móvil de Mecánica</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/PiePagina.css">
 </head>
 <body>
-
-
-    <!-- Sección para mostrar el nombre del usuario o el botón de iniciar sesión -->
-    <header>
-        <div style="position: absolute; top: 10px; right: 10px;">
-            <!-- Contenedor para nombre del usuario y cerrar sesión -->
-            <span id="nombre-usuario" style="display: none;"></span>
-            <button id="cerrar-sesion" onclick="cerrarSesion()" style="display: none;">Cerrar Sesión</button>
-
-
-            <!-- Botón de iniciar sesión, visible solo cuando el usuario no ha iniciado sesión -->
-            <a href="HTML/INICIAR-SESION/iniciarSesion.html" id="boton-iniciar-sesion" class="btn-iniciar-sesion">Iniciar Sesión</a>
+    <div class="background-image-space"></div>
+    
+    <div class="container">
+        <div class="content-left">
+            <h1>HEXAPISTON</h1>
+            <p style="size: 1000px;">Reparaciones profesionales a domicilio. Llevamos el taller hasta tu vehículo.</p>
+            
+            <section class="benefits-section">
+                <div class="benefit-card">
+                    <h3>Servicio Móvil</h3>
+                    <p>Atendemos donde lo necesites, sin desplazamientos.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Rapidez</h3>
+                    <p>Diagnóstico y reparación express para tu tranquilidad.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Profesionalidad</h3>
+                    <p>Técnicos certificados con amplia experiencia.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Garantía</h3>
+                    <p>Respaldamos cada reparación con nuestra garantía de calidad.</p>
+                </div>
+            </section>
         </div>
-    </header>
+        
+        <div class="content-right">
+            <h2>¿Por qué elegirnos?</h2>
+            <p>Entendemos que tu tiempo es valioso. Por eso, te ofrecemos un servicio mecánico que se adapta a tu ritmo de vida.</p>
+            
+            <a href="#opciones" class="btn" id="Entendido">Explorar Servicios</a>
+        </div>
+    </div>
 
-    <h1>Bienvenido a TecnoWheels</h1>
-    <p>¿Problemas con tu vehículo y no tienes tiempo de llevarlo al taller? No te preocupes, nosotros vamos a tu ubicación y te ayudamos.</p>
-    
-    <h2>¿Por qué elegirnos?</h2>
-    <ul>
-        <li>Servicio rápido y profesional donde lo necesites.</li>
-        <li>Ahorra tiempo y evita desplazamientos innecesarios.</li>
-        <li>Calidad garantizada en cada reparación.</li>
-    </ul>
-
-    <p>Para saber más sobre nuestros servicios o contactarnos, solo haz clic en "Entendido". ¡Estamos aquí para ayudarte!</p>
-    
-    <!-- Botón para desplazar a la sección de opciones -->
-    <a href="#opciones" id="Entendido">ver servicios</a>
-
-    <!-- Sección de opciones con botones -->
     <section id="opciones">
-        <h2>Explora nuestros servicios</h2>
-        <p>Elige una opción para saber más:</p>
-
-        <!-- Botones con descripción -->
-        <div>
-           <p style="color: #003366;"> Haz click a cualquier botón para tener más información </p>
-        </div>
-
         <div>
             <h3>Servicios</h3>
-            <p>Aquí podrás ver los servicios disponibles y cómo podemos ayudarte con tu vehículo.</p>
-            <a href="HTML/servicios.html">Ir a Servicios</a>
+            <p>Descubre nuestra gama completa de servicios automotrices.</p>
+            <a href="HTML/servicios.html" class="btn">Ir a Servicios</a>
         </div>
 
         <div>
             <h3>Sobre Nosotros</h3>
-            <p>Conoce más sobre nuestra empresa, nuestra historia y nuestra misión.</p>
-            <a href="HTML/sobre-nosotros.html">Ir a Sobre Nosotros</a>
+            <p>Conoce la historia y el equipo detrás de HEXAPISTON.</p>
+            <a href="HTML/sobre-nosotros.html" class="btn">Conocer Más</a>
         </div>
 
         <div>
             <h3>Comentarios</h3>
-            <p>Lee los comentarios de nuestros clientes y su experiencia con nuestro servicio.</p>
-            <a href="HTML/comentarios.html">Ir a Comentarios</a>
+            <p>Lee las experiencias de nuestros clientes satisfechos.</p>
+            <a href="HTML/comentarios.html" class="btn">Ver Comentarios</a>
         </div>
     </section>
+</body>
+<footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>HEXAPISTON</h3>
+            <p>Servicio móvil de mecánica profesional</p>
+        </div>
+        <div class="footer-section">
+            <h3>Contacto</h3>
+            <p>Teléfono: +57 312 456 7890</p>
+            <p>Email: contacto@hexapiston.com</p>
+        </div>
+        <div class="footer-section">
+            <h3>Síguenos</h3>
+            <div class="social-links">
+                <a href="#" class="social-icon">Instagram</a>
+                <a href="#" class="social-icon">Facebook</a>
+                <a href="#" class="social-icon">LinkedIn</a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h3>Horarios</h3>
+            <p>Lunes a Sábado: 8am - 6pm</p>
+            <p>Domingos: Servicios de emergencia</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 HEXAPISTON. Todos los derechos reservados.</p>
+    </div>
+</footer>
 
-    <!-- Pie de página -->
-    <footer>
-        <p>&copy; 2024 TecnoWheels. Todos los derechos reservados.</p>
-        <p>
-            <a href="https://facebook.com" target="_blank">Facebook</a> |
-            <a href="https://instagram.com" target="_blank">Instagram</a> |
-            <a href="HTML/terminos.html">Términos y Condiciones</a>
-        </p>
-    </footer>
-
-
-    
-    <!-- Enlace al archivo JavaScript -->
-    <script src="JS/iniciadoSesion.js"></script>
-
+  
 </body>
 </html>

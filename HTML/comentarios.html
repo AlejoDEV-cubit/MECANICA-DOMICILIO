@@ -3,51 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comentarios de Clientes - Mecánica a Domicilio</title>
+    <title>Comentarios de Clientes - TecnoWheels</title>
     <link rel="stylesheet" href="../css/comentariosCSS.css">
-    <link rel="stylesheet" href="../css/PiePagina.css">
+    <style>
+        .testimonio-video video {
+            max-height: 400px; /* Ajusta este valor según tus necesidades */
+        }
+    </style>
 </head>
 <body>
     <nav>
-        <a href="../index.html">Inicio</a> |
-        <a href="servicios.html">Servicios</a> |
-        <a href="sobre-nosotros.html">Sobre Nosotros</a> |
+        <a href="../index.html">Inicio</a> 
+        <a href="servicios.html">Servicios</a> 
+        <a href="sobre-nosotros.html">Sobre Nosotros</a> 
         <a href="comentarios.html">Comentarios</a>
     </nav>
 
-    <h1>Comentarios de Nuestros Clientes</h1>
-    <p>Escucha lo que algunos de nuestros clientes tienen que decir sobre nuestros servicios de mecánica a domicilio.</p>
+    <div class="container">
+        <h1>Testimonios de Clientes</h1>
+        <p>Escucha las experiencias reales de nuestros clientes con los servicios de HEXAPISTON.      ¡unde o delizate sobre los recuadros para ver las opiniones de nuestros clientes!</p>
 
-    <div class="comentarios">
-        <!-- recuadro de comentario con video -->
-        <div class="comentario">
-            <h3>fabio zayus</h3>
-            <video src="../VIDEOS/FABIO.mp4" controls onmouseover="this.play()" onmouseout="this.pause()"></video>
+
+        <div class="testimonios-grid">
+            <div class="testimonio-card">
+                <div class="testimonio-video">
+                    <video 
+                        src="../VIDEOS/FABIO.mp4" 
+                        poster="../imagenes/placeholder-video.jpg"
+                        preload="auto"
+                    ></video>
+                    <div class="testimonio-overlay">
+                        <h3>Fabio Zayus</h3>
+                        <p>Servicio de Electricidad Automotriz</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonio-card">
+                <div class="testimonio-video">
+                    <video 
+                        src="../VIDEOS/dago.mp4" 
+                        poster="../imagenes/placeholder-video.jpg"
+                        preload="auto"
+                    ></video>
+                    <div class="testimonio-overlay">
+                        <h3>Dagoberto Valencia</h3>
+                        <p>Servicio de Aire Acondicionado</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonio-card">
+                <div class="testimonio-video">
+                    <video 
+                        src="../VIDEOS/ivan .mp4" 
+                        poster="../imagenes/placeholder-video.jpg"
+                        preload="auto"
+                    ></video>
+                    <div class="testimonio-overlay">
+                        <h3>Ivan Rojas</h3>
+                        <p>Servicio de Mecánica Rápida</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="comentario">
-            <h3>dagoberto valencia</h3>
-            <video src="../VIDEOS/dago.mp4" controls onmouseover="this.play()" onmouseout="this.pause()"></video>
+        <div class="llamada-accion">
+            <h2>¿Quieres conocer más?</h2>
+            <a href="ContratarServicio.html" class="btn">Agenda Tu Servicio</a>
         </div>
-
-        <div class="comentario">
-            <h3>ivan rojas</h3>
-            <video src="../VIDEOS/ivan .mp4" controls onmouseover="this.play()" onmouseout="this.pause()"></video>
-        </div>
-
-        <!-- Añadire más comentarios según sea necesario -->
     </div>
 
-  <!-- Pie de página -->
-  <footer>
-    <div class="footer-content">
-        <div class="footer-links">
-            <a href="www.facebook.com">Facebook</a>
-            <a href="www.instagram.com">Instagram</a>
-            <a href="terminos.html">Terminos Y Condiciones</a>
-        </div>
-        <p>&copy; 2024 TecnoWheels. Todos los derechos reservados.</p>
-    </div>
-</footer>  
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const videoContainers = document.querySelectorAll('.testimonio-video');
+            
+            videoContainers.forEach(container => {
+                const video = container.querySelector('video');
+                
+                // Mostrar primer frame al cargar
+                video.load();
+                
+                container.addEventListener('mouseenter', () => {
+                    video.currentTime = 0;
+                    video.play();
+                });
+
+                container.addEventListener('mouseleave', () => {
+                    video.pause();
+                    video.currentTime = 0;
+                });
+            });
+        });
+    </script>
 </body>
 </html>

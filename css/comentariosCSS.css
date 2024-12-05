@@ -1,129 +1,156 @@
-/* Fuente personalizada */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+/* Variables de diseño */
+:root {
+    --color-primary: #1A5F7A;
+    --color-secondary: #159895;
+    --color-accent: #57C5B6;
+    --color-background: #F8F9FA;
+    --shadow-subtle: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-elevated: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
 
-/* Estilos generales */
-body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(-45deg, #f0f2f5, #e6eef7);
-    color: #333;
+* {
+    box-sizing: border-box;
     margin: 0;
-    padding: 2rem;
-    min-height: 100vh;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--color-background);
+    color: #333;
     line-height: 1.6;
 }
 
-/* Navegación */
-nav a {
-    color: #013364;
-    text-decoration: none;
-    margin: 0 1rem;
-    font-weight: 500;
-    position: relative;
-    padding: 0.5rem 0;
-}
-
-nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 50%;
-    background-color: #003366;
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-}
-
-nav a:hover::after {
-    width: 100%;
-}
-
-h1 {
-    font-size: 2.5em;
-    color: #003366;
-    margin: 3rem 0;
-    text-align: center;
-    position: relative;
-}
-
-h1::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 2px;
-    background: #003366;
-    margin: 1rem auto;
-    border-radius: 2px;
-}
-
-/* Estilos de la sección de comentarios */
-.comentarios {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    padding: 2rem 0;
+.container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 2rem;
 }
 
-.comentario {
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    padding: 1.5rem;
+/* Navegación */
+nav {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1rem;
+    background-color: rgba(255,255,255,0.9);
+    box-shadow: var(--shadow-subtle);
 }
 
-.comentario:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+nav a {
+    text-decoration: none;
+    color: var(--color-primary);
+    transition: color 0.3s ease;
 }
 
-/* Estilos de los nombres */
-.comentario h3 {
-    font-size: 1.5em;
-    color: #003366;
-    margin: 0;
+nav a:hover {
+    color: var(--color-accent);
 }
 
-/* Estilos de los videos */
-video {
+/* Encabezados */
+h1 {
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--color-accent);
+}
+
+/* Grid de Testimonios */
+.testimonios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.testimonio-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-subtle);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.testimonio-video {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.testimonio-video video {
     width: 100%;
-    height: auto;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    max-height: 100%;
     object-fit: contain;
+    transition: all 0.3s ease;
 }
 
-video:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+.testimonio-card:hover .testimonio-video video {
+    transform: scale(1.1);
 }
 
-/* Media queries para móviles */
+.testimonio-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(26, 95, 122, 0.8);
+    color: white;
+    padding: 1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.testimonio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-elevated);
+}
+
+.testimonio-card:hover .testimonio-overlay {
+    transform: translateY(0);
+}
+
+/* Llamada a la Acción */
+.llamada-accion {
+    text-align: center;
+    background: rgba(255,255,255,0.9);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow-subtle);
+}
+
+.llamada-accion h2 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-elevated);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    .comentarios {
-        grid-template-columns: 1fr; /* Cambia a una sola columna en móviles */
+    .testimonios-grid {
+        grid-template-columns: 1fr;
     }
 
-    body {
-        padding: 1rem;
-    }
-
-    h1 {
-        font-size: 2em;
-        margin: 2rem 0;
-    }
-
-    .comentario {
-        margin: 0 auto;
-        width: 100%;
+    nav {
+        flex-direction: column;
+        align-items: center;
     }
 }

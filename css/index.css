@@ -1,135 +1,275 @@
 /* Fuente personalizada */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Open+Sans:wght@400;600&display=swap');
+
+:root {
+    --color-primary: #1A5F7A;
+    --color-secondary: #159895;
+    --color-accent: #57C5B6;
+    --color-background: #F8F9FA;
+    --shadow-subtle: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-elevated: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
 
 /* Estilo general */
-body {
-    font-family: 'Poppins', sans-serif;
-    color: #333;
+* {
+    box-sizing: border-box;
     margin: 0;
-    padding: clamp(1rem, 5vw, 3rem);
-    background: linear-gradient(-45deg, #f0f2f5, #e6eef7, #dce6f0);
-    min-height: 100vh;
+    padding: 0;
 }
 
-h1, h2, h3 {
-    color: #003366;
-}
-
-h1 {
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
-    text-align: center;
-    margin: clamp(1.5rem, 4vw, 2.5rem) 0;
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #333;
+    background-color: var(--color-background);
+    line-height: 1.6;
     position: relative;
 }
 
-h1::after {
-    content: '';
-    display: block;
-    width: clamp(60px, 10vw, 80px);
-    height: 2px;
-    background: #003366;
-    margin: 1rem auto;
-    border-radius: 2px;
+/* Espacio para imagen de fondo */
+.background-image-space {
+    background-image: url('../imagenes/markus-spiske-6rF_Du5cn1Y-unsplash.jpg');
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    z-index: -1;
 }
 
-/* Sección de lista de beneficios */
-ul {
-    max-width: 800px;
-    margin: clamp(2rem, 5vw, 3rem) auto;
-    padding: 0 clamp(1rem, 3vw, 2rem);
-    list-style: none;
+/* Diseño de contenedor asimétrico */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
-ul li {
-    background: white;
-    color: #333;
-    padding: clamp(1rem, 3vw, 1.5rem) clamp(1.25rem, 3vw, 2rem);
-    margin: clamp(1rem, 3vw, 1.5rem) 0;
-    border-radius: 8px;
+/* Títulos */
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    position: relative;
     text-align: left;
-    font-size: clamp(1rem, 2.5vw, 1.1rem);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding-left: 1rem;
+    border-left: 5px solid var(--color-accent);
+}
+
+h2 {
+    color: var(--color-secondary);
+    font-size: 1.8rem;
+}
+
+/* Sección de beneficios con diseño de tarjetas inclinadas */
+.benefits-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.benefit-card {
+    flex-basis: calc(50% - 0.5rem);
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-subtle);
+    transform: perspective(500px) rotateX(2deg) rotateY(-5deg);
     transition: all 0.3s ease;
 }
 
-/* Sección de opciones */
+.benefit-card:nth-child(even) {
+    transform: perspective(500px) rotateX(-2deg) rotateY(5deg);
+}
+
+.benefit-card:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-elevated);
+}
+
+/* Contenido derecho */
+.content-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Botones con estilo moderno */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg, 
+        transparent, 
+        rgba(255,255,255,0.3), 
+        transparent
+    );
+    transition: all 0.4s ease;
+}
+
+.btn:hover::after {
+    left: 100%;
+}
+
+/* Sección de opciones con diseño de mosaico */
 #opciones {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-    gap: clamp(1rem, 3vw, 2rem);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
     max-width: 1200px;
-    margin: clamp(2rem, 5vw, 3rem) auto;
-    padding: 0 clamp(1rem, 3vw, 2rem);
+    margin: 2rem auto;
 }
 
 #opciones div {
-    background: white;
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 12px;
-    padding: clamp(1.5rem, 4vw, 2.5rem);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-subtle);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-#opciones div:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+#opciones div::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg, 
+        transparent, 
+        var(--color-accent), 
+        transparent
+    );
+    transform: rotate(-45deg);
+    opacity: 0.1;
+    transition: all 0.4s ease;
 }
 
-/* Estilo común para todos los botones */
-#opciones div a,
-#Entendido,
-#boton-iniciar-sesion {
+#opciones div:hover::before {
+    opacity: 0.3;
+}
+
+/* Estilos para la sección de detalles de servicio */
+.service-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.service-process, 
+.professional-credentials {
+    flex: 1;
+    min-width: 300px;
+}
+
+.service-process .process-steps, 
+.professional-credentials .credentials-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.step, .credential-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-subtle);
+    transition: transform 0.3s ease;
+}
+
+.step span, 
+.credential-card span {
     display: inline-block;
-    width: 100%;
-    max-width: 300px;
-    padding: clamp(0.8rem, 2.5vw, 1rem) clamp(1.5rem, 4vw, 2rem);
-    background: linear-gradient(45deg, #00509e, #003366);
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-primary);
     color: white;
-    text-decoration: none;
-    border-radius: 25px;
-    font-size: clamp(1rem, 2.5vw, 1.1rem);
-    transition: all 0.3s ease;
+    border-radius: 50%;
     text-align: center;
-    box-sizing: border-box;
+    line-height: 40px;
+    margin-bottom: 1rem;
 }
 
-/* Efecto hover simple para botones */
-@media (hover: hover) {
-    #opciones div a:hover,
-    #Entendido:hover,
-    #boton-iniciar-sesion:hover {
-        transform: scale(1.05);
-        box-shadow: 0 4px 15px rgba(0, 51, 102, 0.2);
+.step:hover, 
+.credential-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        padding: 1rem;
     }
-}
-
-/* Botón de "Entendido" */
-#Entendido {
-    display: block;
-    margin: clamp(2rem, 5vw, 3rem) auto;
-}
-
-/* Mejoras para pantallas táctiles */
-@media (hover: none) {
-    #opciones div a:active,
-    #Entendido:active,
-    #boton-iniciar-sesion:active {
-        transform: scale(0.98);
-        background: linear-gradient(45deg, #003366, #00509e);
+    
+    .benefits-section .benefit-card {
+        flex-basis: 100%;
+        transform: none;
     }
-}
-
-/* Media queries específicas */
-@media (max-width: 480px) {
-    #opciones {
+    
+    .service-details {
+        flex-direction: column;
+    }
+    
+    .service-process .process-steps, 
+    .professional-credentials .credentials-content {
         grid-template-columns: 1fr;
     }
     
-    ul li {
-        margin: 1rem 0;
+    #opciones {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+}
+
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
     }
     
-    body {
-        padding: 1rem;
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
     }
 }
